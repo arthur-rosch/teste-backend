@@ -10,6 +10,7 @@
     "test": "vitest",
     "test:run": "vitest run",
     "test:ui": "vitest --ui",
+    "test:api": "./test-api.sh",
     "pre-commit:check": "pnpm test:run && pnpm build",
     "prepare": "husky"
   },
