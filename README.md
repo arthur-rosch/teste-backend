@@ -32,7 +32,7 @@ Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis de ambient
 PORT=3000
 
 # MongoDB Connection URI
-MONGODB_URI=mongodb://localhost:27017/teste-backend
+MONGODB_URI=mongodb+srv://roscharthur_db_user:v3Nw6xoV4Pe4igWF@cluster0.ztmo5eg.mongodb.net/teste-backend?retryWrites=true&w=majority&appName=Cluster0
 
 # JWT Secret Key (required - minimum 1 character)
 JWT_SECRET=your-secret-key-here-change-in-production
