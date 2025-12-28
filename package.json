@@ -10,6 +10,7 @@
     "test": "vitest",
     "test:run": "vitest run",
     "test:ui": "vitest --ui",
+    "pre-commit:check": "pnpm test:run && pnpm build",
     "prepare": "husky"
   },
   "keywords": [
