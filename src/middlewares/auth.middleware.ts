@@ -1,6 +1,7 @@
 import { Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import { AuthRequest } from '../types';
+import { env } from '../config/env';
 
 export const authMiddleware = (
   req: AuthRequest,
@@ -29,9 +30,7 @@ export const authMiddleware = (
       return;
     }
 
-    const secret = process.env.JWT_SECRET || 'default-secret';
-
-    jwt.verify(token, secret, (err, decoded) => {
+    jwt.verify(token, env.JWT_SECRET, (err, decoded) => {
       if (err) {
         res.status(401).json({ error: 'Token invalid' });
         return;

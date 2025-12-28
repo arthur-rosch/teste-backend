@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
+import { env } from './env';
 
 export const connectDatabase = async (): Promise<void> => {
   try {
-    const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/teste-backend';
-    await mongoose.connect(mongoUri);
+    await mongoose.connect(env.MONGODB_URI);
     console.log('Database connected successfully');
   } catch (error) {
     console.error('Database connection error:', error);

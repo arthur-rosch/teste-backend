@@ -2,6 +2,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { User } from '../models/User';
 import { RegisterDTO, LoginDTO } from '../types';
+import { env } from '../config/env';
 
 export class AuthService {
   async register(data: RegisterDTO) {
@@ -50,9 +51,6 @@ export class AuthService {
   }
 
   private generateToken(id: string, email: string): string {
-    const secret = process.env.JWT_SECRET || 'default-secret';
-    const expiresIn = process.env.JWT_EXPIRES_IN || '7d';
-
-    return jwt.sign({ id, email }, secret, { expiresIn });
+    return jwt.sign({ id, email }, env.JWT_SECRET, { expiresIn: env.JWT_EXPIRES_IN });
   }
 }
