@@ -48,9 +48,22 @@ npm start
 ```
 
 ### Testes
+
+**Executar todos os testes**
 ```bash
 npm test
 ```
+
+**Executar com interface gráfica**
+```bash
+npm run test:ui
+```
+
+**Estrutura de testes:**
+- `tests/auth.service.test.ts` - Testes unitários do serviço de autenticação
+- `tests/orders.service.test.ts` - Testes unitários do serviço de pedidos
+- `tests/e2e/auth.e2e.test.ts` - Testes E2E dos endpoints de autenticação
+- `tests/e2e/orders.e2e.test.ts` - Testes E2E dos endpoints de pedidos
 
 ## Endpoints
 
