@@ -3,10 +3,11 @@ import request from 'supertest';
 import mongoose from 'mongoose';
 import app from '../../src/app';
 import { User } from '../../src/models/User';
+import { env } from '../../src/config/env';
 
 describe('Auth E2E', () => {
   beforeAll(async () => {
-    const testDbUri = 'mongodb://localhost:27017/teste-backend-e2e';
+    const testDbUri = env.MONGODB_URI;
     await mongoose.connect(testDbUri);
   });
 

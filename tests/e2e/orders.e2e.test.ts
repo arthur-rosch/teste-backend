@@ -4,13 +4,14 @@ import mongoose from 'mongoose';
 import app from '../../src/app';
 import { User } from '../../src/models/User';
 import { Order } from '../../src/models/Order';
+import { env } from '../../src/config/env';
 
 describe('Orders E2E', () => {
   let authToken: string;
   let userId: string;
 
   beforeAll(async () => {
-    const testDbUri = 'mongodb://localhost:27017/teste-backend-e2e';
+    const testDbUri = env.MONGODB_URI;
     await mongoose.connect(testDbUri);
 
     const registerResponse = await request(app)
