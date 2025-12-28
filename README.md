@@ -25,14 +25,29 @@ npm install
 
 ## Configuração
 
-Crie um arquivo `.env` baseado no `.env.example`:
+Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis de ambiente:
 
 ```env
+# Server Port (default: 3000)
 PORT=3000
+
+# MongoDB Connection URI
 MONGODB_URI=mongodb://localhost:27017/teste-backend
-JWT_SECRET=your-secret-key-here
+
+# JWT Secret Key (required - minimum 1 character)
+JWT_SECRET=your-secret-key-here-change-in-production
+
+# JWT Token Expiration Time (default: 7d)
+# Examples: 1h, 24h, 7d, 30d
 JWT_EXPIRES_IN=7d
 ```
+
+### Descrição das Variáveis
+
+- **PORT**: Porta em que o servidor irá rodar (padrão: 3000)
+- **MONGODB_URI**: URI de conexão com o MongoDB (obrigatório, deve ser uma URL válida)
+- **JWT_SECRET**: Chave secreta usada para assinar os tokens JWT (obrigatório, mínimo de 1 caractere)
+- **JWT_EXPIRES_IN**: Tempo de expiração dos tokens JWT (padrão: 7d). Aceita formatos como: `1h`, `24h`, `7d`, `30d`
 
 ## Execução
 
