@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import jwt, { SignOptions } from 'jsonwebtoken';
 import { User } from '../models/User';
 import { RegisterDTO, LoginDTO } from '../types';
 import { env } from '../config/env';
@@ -51,6 +51,10 @@ export class AuthService {
   }
 
   private generateToken(id: string, email: string): string {
-    return jwt.sign({ id, email }, env.JWT_SECRET, { expiresIn: env.JWT_EXPIRES_IN });
+    return jwt.sign(
+      { id, email },
+      env.JWT_SECRET,
+      { expiresIn: env.JWT_EXPIRES_IN } as SignOptions
+    );
   }
 }
